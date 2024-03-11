@@ -1,5 +1,3 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 const TgBotApi = require("node-telegram-bot-api");
 const token = process.env.NEXT_TOKEN;
 const bot = new TgBotApi(token, { polling: true });
@@ -32,5 +30,9 @@ const start = () => {
 export default function Home() {
   start();
   console.log("NEXT_TOKEN", token);
-  return <main>hi</main>;
+  return (
+    <main>
+      hi <p>{token}</p>
+    </main>
+  );
 }

@@ -1,95 +1,36 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+const TgBotApi = require("node-telegram-bot-api");
+const token = process.env.NEXT_TOKEN;
+const bot = new TgBotApi(token, { polling: true });
+const start = () => {
+  bot.setMyCommands([
+    { command: "/hello", description: "Привет" },
+    { command: "/what_is_your_name", description: "Как вас зовут" },
+  ]);
 
+  bot.on("message", async (msg) => {
+    const text = msg.text;
+    const chatId = msg.chat.id;
+
+    if (text === "/start") {
+      await bot.sendSticker(
+        chatId,
+        "https://dominishop.ru/upload/resize_cache/webp/iblock/5a4/n3lwfunldnkuf7npl3sof8a31oodyn3l.webp"
+      );
+      await bot.sendMessage(chatId, `Привет ${msg.from.first_name}`);
+    } else if (text === "/hello") {
+      await bot.sendMessage(chatId, `Привет ${msg.from.first_name}`);
+    } else if (text === "/what_is_your_name") {
+      await bot.sendMessage(
+        chatId,
+        `By ${msg.from.first_name} /hello \n /what_is_your_name`
+      );
+    }
+  });
+};
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
+  start();
+  console.log("NEXT_TOKEN", token);
+  return <main>hi</main>;
 }

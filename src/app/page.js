@@ -1,7 +1,8 @@
 "use client";
-import { ProductList } from "../components/product-list/ProductList";
+
 import { useAppSelector } from "./redux/hook";
 import style from "./page.module.css";
+import { ProductList } from "./components/product-list/ProductList";
 
 // const getProduct = async () => {
 //   console.log("getProduct");

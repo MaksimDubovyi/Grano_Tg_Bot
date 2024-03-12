@@ -23,20 +23,18 @@ const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
         src={`/product/${img}`}
         width={100}
         height={100}
-        alt="Picture of the author"
-        sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
+        alt={`product ${img}`}
+        priority={true}
       />
       <p className={style.p}>{title}</p>
       <p className={style.p}>{price} грн</p>
       <button onClick={addToCart} className={style.btn}>
         Додати до кошика
         <Image
-          className={style.imageBtn}
           src={`/product/diagram.png`}
           width={20}
           height={20}
-          alt="Picture of the author"
-          sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 25vw"
+          alt="diagram"
         />
       </button>
     </div>

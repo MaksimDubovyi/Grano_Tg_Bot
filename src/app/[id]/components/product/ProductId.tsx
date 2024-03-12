@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./productId.module.css";
-
-import { useAppDispatch, useAppSelector } from "../../../redux/hook";
+import { useAppSelector } from "../../../redux/hook";
 import Image from "next/image";
 
 interface Props {
@@ -10,15 +9,12 @@ interface Props {
 }
 
 const ProductId: React.FC<Props> = ({ id }) => {
-  const dispatch = useAppDispatch();
-
   const product = useAppSelector((state) => {
-    // Отримати потрібний об'єкт продукту за його ідентифікатором
     return state.appReducer.dataProducts.find(
       (product) => product.id === parseInt(id, 10)
     );
   });
-  console.log("product", product);
+
   return (
     <div className={style.containerMain}>
       {product && (
@@ -44,7 +40,7 @@ const ProductId: React.FC<Props> = ({ id }) => {
             У країні вирощують ряд зернових культур, структура посівів яких має
             певні відмінності в зонах з різними природними і економічними
             умовами. З хлібних зернових культур в Україні вирощуються озимі
-            пшениця і жито, круп'яні - просо, гречка і рис, зернофуражні -
+            пшениця і жито, крупяні - просо, гречка і рис, зернофуражні -
             ячмінь, кукурудза і овес, зернобобові - горох. У країні вирощують
             озимі та ярі культури, площі посівів яких за останні роки майже
             зрівнялися. Зазвичай більше сіють озимих культур, так як вони

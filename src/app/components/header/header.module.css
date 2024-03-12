@@ -4,12 +4,31 @@
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
+    width: 93%;
+    height: 70px;
+    border: 2px solid black;
+    top: 10px;
+    border-radius: 12px;
 }
 
 
-
+.length{
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:  20px;
+    height: 20px;
+    padding: 3px;
+    background-color: rgb(75, 75, 75);
+    color: white;
+}
 
 .btn{
+    position: relative;
     cursor: pointer;
     border-radius: 8px;
     width: 50px;
@@ -20,6 +39,7 @@
     font-size: 12px;
     font-weight: 600;
     background-color: rgb(255, 255, 255);
+    border: 1px solid black;
 
 }
 .btn:hover{

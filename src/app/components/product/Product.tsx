@@ -3,8 +3,11 @@ import React, { useEffect, useState } from "react";
 import style from "./product.module.css";
 import Image from "next/image";
 import { ProductType } from "../../type/type";
-
+import { addMyBox } from "../../redux/appState/appSlice";
+import { useAppDispatch } from "../../redux/hook";
 const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
+  const dispatch = useAppDispatch();
+
   const handleClickRouter = () => {
     const newTabUrl = `/${id}`;
     window.open(newTabUrl, "_blank");
@@ -13,6 +16,13 @@ const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.stopPropagation();
+    const item: ProductType = {
+      id,
+      title,
+      price,
+      img,
+    };
+    dispatch(addMyBox(item));
     console.log("addToCart", title);
   };
   return (

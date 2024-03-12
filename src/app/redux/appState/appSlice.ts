@@ -1,5 +1,5 @@
 "use client";
-import { ProductType } from "@/app/type/type";
+import { ProductType } from "../../type/type";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataProducts } from "./dataProducts";
 
@@ -7,24 +7,25 @@ type App = {
   isMapPage: boolean;
   location: string;
   dataProducts: ProductType[];
+  myBox: ProductType[];
 };
 
 const initialState: App = {
   isMapPage: false,
   location: "en",
   dataProducts: dataProducts,
+  myBox: [],
 };
 
 export const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    getProductById(state, action: PayloadAction<number>) {
-      const productId = action.payload;
-      state.dataProducts.find((product) => product.id === productId);
+    addMyBox(state, action: PayloadAction<ProductType>) {
+      state.myBox.push(action.payload);
     },
   },
 });
 
-export const { getProductById } = appSlice.actions;
+export const { addMyBox } = appSlice.actions;
 export default appSlice.reducer;

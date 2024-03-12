@@ -1,16 +1,14 @@
-"use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./header.module.css";
-
+import { useAppSelector } from "../../redux/hook";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header: React.FC = () => {
-  const addToCart = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.stopPropagation();
-    console.log("addToCart");
-  };
+  const { myBox } = useAppSelector((state) => state.appReducer);
+
+  const onClick = () => {};
+
   return (
     <div className={style.container}>
       <Image
@@ -22,8 +20,10 @@ const Header: React.FC = () => {
         style={{ width: "100px", height: "100px" }}
         priority={true}
       />
-
-      <button onClick={addToCart} className={style.btn}>
+      <Link rel="stylesheet" href="/mybox" className={style.btn}>
+        {myBox.length > 0 && (
+          <span className={style.length}>{myBox.length}</span>
+        )}
         <Image
           src={`/product/diagram.png`}
           width={30}
@@ -31,8 +31,9 @@ const Header: React.FC = () => {
           alt="diagram"
           style={{ width: "25px", height: "25px" }}
         />
-      </button>
+      </Link>
     </div>
   );
 };
+
 export { Header };

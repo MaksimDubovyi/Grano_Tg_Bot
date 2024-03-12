@@ -1,4 +1,4 @@
-import { ProductType } from "@/app/type/type";
+import { ProductType } from "../../type/type";
 
 export const dataProducts: ProductType[] = [
   {

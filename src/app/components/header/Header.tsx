@@ -1,36 +1,30 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import style from "./product.module.css";
+import style from "./header.module.css";
 
 import Image from "next/image";
 import { ProductType } from "@/app/type/type";
 
-const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
-  const handleClickRouter = () => {
-    const newTabUrl = `/${id}`;
-    window.open(newTabUrl, "_blank");
-  };
+const Header: React.FC = () => {
   const addToCart = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.stopPropagation();
-    console.log("addToCart", title);
+    console.log("addToCart");
   };
   return (
-    <div className={style.container} onClick={handleClickRouter}>
+    <div className={style.container}>
       <Image
         className={style.image}
-        src={`/product/${img}`}
+        src={`https://grano.com.ua/_next/static/media/Logo.53638533.svg`}
         width={200}
         height={200}
-        alt={`product ${img}`}
+        alt={"grano"}
         style={{ width: "100px", height: "100px" }}
         priority={true}
       />
-      <p className={style.p}>{title}</p>
-      <p className={style.p}>{price} грн</p>
+
       <button onClick={addToCart} className={style.btn}>
-        Додати до кошика
         <Image
           src={`/product/diagram.png`}
           width={20}
@@ -42,4 +36,4 @@ const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
     </div>
   );
 };
-export { Product };
+export { Header };

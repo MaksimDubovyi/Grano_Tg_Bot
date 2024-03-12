@@ -3,7 +3,7 @@ import React from "react";
 import { Product } from "../product/Product";
 import { useAppSelector } from "../../redux/hook";
 import style from "./productList.module.css";
-import { ProductType } from "@/app/type/type";
+import { ProductType } from "../../type/type";
 
 interface ProductListProps {
   data: ProductType[];

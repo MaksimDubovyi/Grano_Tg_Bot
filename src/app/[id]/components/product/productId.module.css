@@ -1,6 +1,7 @@
 .containerMain{
     display: flex;
     justify-content: center;
+    padding: 0 50px;
 }
 .container{
     display: flex;
@@ -14,4 +15,7 @@
 
 .image{
     border-radius: 12px;
+}
+.dack{
+    margin: 25px;
 }

@@ -1,0 +1,53 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.containerMain{
+    border: 1px solid black;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+}
+.item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+.image{
+    width: 30%;
+    border: 1px rgb(255, 255, 255) solid;
+    border-radius: 12px;
+    margin-right:20px ;
+}
+
+.pDiv{
+    width: 30%;
+}
+.p{
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    margin: 0;
+}
+.btn{
+    margin-left:20px ;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 120px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    background-color: rgb(195, 122, 122);
+
+}
+.btn:hover{
+    background-color: rgb(228, 44, 24);
+}

@@ -4,15 +4,11 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { dataProducts } from "./dataProducts";
 
 type App = {
-  isMapPage: boolean;
-  location: string;
   dataProducts: ProductType[];
   myBox: ProductType[];
 };
 
 const initialState: App = {
-  isMapPage: false,
-  location: "en",
   dataProducts: dataProducts,
   myBox: [],
 };
@@ -24,8 +20,14 @@ export const appSlice = createSlice({
     addMyBox(state, action: PayloadAction<ProductType>) {
       state.myBox.push(action.payload);
     },
+    deleteFromMyBox(state, action: PayloadAction<number>) {
+      const index = state.myBox.findIndex((item) => item.id === action.payload);
+      if (index !== -1) {
+        state.myBox.splice(index, 1);
+      }
+    },
   },
 });
 
-export const { addMyBox } = appSlice.actions;
+export const { addMyBox, deleteFromMyBox } = appSlice.actions;
 export default appSlice.reducer;

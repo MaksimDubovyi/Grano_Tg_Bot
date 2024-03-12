@@ -1,12 +1,12 @@
 import React from "react";
+import { useAppSelector } from "../redux/hook";
+import { ProductType } from "@/app/type/type";
+import { MyboxProductList } from "../components/mybox-product-list/MyboxProductList";
 
-type Props = {
-  params: {
-    id: string;
-    locale: string;
-  };
-};
-
-export default async function Hous({ params: { id, locale } }: Props) {
-  return <div>we</div>;
+export default async function Hous() {
+  return (
+    <div>
+      <MyboxProductList />
+    </div>
+  );
 }

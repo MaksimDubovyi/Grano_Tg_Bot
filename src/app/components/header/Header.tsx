@@ -7,8 +7,6 @@ import Link from "next/link";
 const Header: React.FC = () => {
   const { myBox } = useAppSelector((state) => state.appReducer);
 
-  const onClick = () => {};
-
   return (
     <div className={style.container}>
       <Image
@@ -20,6 +18,21 @@ const Header: React.FC = () => {
         style={{ width: "100px", height: "100px" }}
         priority={true}
       />
+
+      <Link
+        rel="stylesheet"
+        href="https://t.me/Grano_Assistant_Bot"
+        className={style.btnBot}
+      >
+        <Image
+          src={`/telegram.svg`}
+          width={30}
+          height={30}
+          alt="diagram"
+          style={{ width: "20px", height: "20px" }}
+        />{" "}
+        Telegram Bot
+      </Link>
       <Link rel="stylesheet" href="/mybox" className={style.btn}>
         {myBox.length > 0 && (
           <span className={style.length}>{myBox.length}</span>

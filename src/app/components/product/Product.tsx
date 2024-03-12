@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import style from "./product.module.css";
 import Image from "next/image";
 import { ProductType } from "../../type/type";

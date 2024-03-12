@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import { Product } from "../product/Product";
-import { useAppSelector } from "../../redux/hook";
 import style from "./productList.module.css";
 import { ProductType } from "../../type/type";
 

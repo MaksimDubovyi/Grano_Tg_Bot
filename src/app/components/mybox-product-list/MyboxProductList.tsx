@@ -66,9 +66,6 @@ const MyboxProductList: React.FC = () => {
   };
   return (
     <div className={style.container}>
-      <a href="https://t.me/Grano_Assistant_Bot" target="_blank">
-        Перейти в бота в Telegram
-      </a>{" "}
       <h2>Корзина</h2>
       <div className={style.containerMain}>
         <h4>Ваш вибір:</h4>

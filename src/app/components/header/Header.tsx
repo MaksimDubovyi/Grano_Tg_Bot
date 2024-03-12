@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import style from "./header.module.css";
 
 import Image from "next/image";
-import { ProductType } from "@/app/type/type";
 
 const Header: React.FC = () => {
   const addToCart = (
@@ -27,10 +26,10 @@ const Header: React.FC = () => {
       <button onClick={addToCart} className={style.btn}>
         <Image
           src={`/product/diagram.png`}
-          width={20}
-          height={20}
+          width={30}
+          height={30}
           alt="diagram"
-          style={{ width: "20px", height: "20px" }}
+          style={{ width: "25px", height: "25px" }}
         />
       </button>
     </div>

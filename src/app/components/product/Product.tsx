@@ -1,9 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import style from "./product.module.css";
-
 import Image from "next/image";
-import { ProductType } from "@/app/type/type";
+import { ProductType } from "../../type/type";
 
 const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
   const handleClickRouter = () => {

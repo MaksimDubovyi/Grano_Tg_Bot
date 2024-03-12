@@ -24,6 +24,7 @@ const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
         width={100}
         height={100}
         alt={`product ${img}`}
+        style={{ width: "20px", height: "20px" }}
         priority={true}
       />
       <p className={style.p}>{title}</p>
@@ -35,6 +36,7 @@ const Product: React.FC<ProductType> = ({ id, title, price, img }) => {
           width={20}
           height={20}
           alt="diagram"
+          style={{ width: "20px", height: "20px" }}
         />
       </button>
     </div>

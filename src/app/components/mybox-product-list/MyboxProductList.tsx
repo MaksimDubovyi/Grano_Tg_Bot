@@ -95,7 +95,7 @@ const MyboxProductList: React.FC = () => {
               className={style.btn}
               onClick={() => handleDelete(item.productType.id)}
             >
-              видалити
+              Видалити
             </button>
           </div>
         ))}
